@@ -1,4 +1,6 @@
 // Assignment code here
+
+
 //array of lower case character
 var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
   "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -40,15 +42,32 @@ var getPasswordOptions = function () {
     "Click Ok to include number characters"
   );
   var confirmSpecialCharacters = confirm(
-    "Click Ok to include specal characters"
+    "Click Ok to include special characters"
   );
 
 
-  if (confirmLowercaseCharacters, confirmUppercaseCharacters, confirmNumericCharacters, confirmSpecialCharacters === false) {
+  if (confirmLowercaseCharacters === false &&
+    confirmUppercaseCharacters === false &&
+    confirmNumericCharacters === false &&
+    confirmSpecialCharacters === false) {
     window.alert("At least one character must be selected")
     return;
   }
 };
+//function to get random characters from array
+function getLowercase() {
+  return lowercaseCharacters[Math.floor(Math.random() * lowercaseCharacters.length)];
+}
+function getUppercase() {
+  return uppercaseCharacters[Math.floor(Math.random() * uppercaseCharacters.length)];
+}
+function getNumber() {
+  return numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
+}
+function getSpecial() {
+  return specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+}
+console.log();
 
 var generatePassword = function() {
   getPasswordOptions();
