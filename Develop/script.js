@@ -44,8 +44,7 @@ var getPasswordOptions = function () {
   var confirmSpecialCharacters = confirm(
     "Click Ok to include special characters"
   );
-
-
+  //alert if no characters were chosen
   if (confirmLowercaseCharacters === false &&
     confirmUppercaseCharacters === false &&
     confirmNumericCharacters === false &&
@@ -53,24 +52,27 @@ var getPasswordOptions = function () {
     window.alert("At least one character must be selected")
     return;
   }
-};
-//function to get random characters from array
-function getLowercase() {
-  return lowercaseCharacters[Math.floor(Math.random() * lowercaseCharacters.length)];
+  //object will store if clicked ok on prompts
+  var passwordOptions = {
+    length: length,
+    confirmLowercaseCharacters: confirmLowercaseCharacters,
+    confirmUppercaseCharacters: confirmUppercaseCharacters,
+    confirmNumericCharacters: confirmNumericCharacters,
+    confirmSpecialCharacters: confirmSpecialCharacters
+  };
+
+  return passwordOptions;
 }
-function getUppercase() {
-  return uppercaseCharacters[Math.floor(Math.random() * uppercaseCharacters.length)];
+//function for getting random characters
+function getRandomCharacters(array) {
+  var randomIndex = Math.floor(Math.random() * array.length);
+  var randomCharacters = array[randomIndex];
+  return randomCharacters;
 }
-function getNumber() {
-  return numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
-}
-function getSpecial() {
-  return specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
-}
-console.log();
+
 
 var generatePassword = function() {
-  getPasswordOptions();
+  
 }
 
 
