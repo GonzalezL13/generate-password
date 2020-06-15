@@ -69,10 +69,36 @@ function getRandomCharacters(array) {
   var randomCharacters = array[randomIndex];
   return randomCharacters;
 }
-
-
+//function to generate password
 var generatePassword = function() {
-  
+  //this variable runs the data from the getPasswordOptions function
+  var options = getPasswordOptions();
+  //this variable will store character together to form password
+  var newPassword = [];
+  //this variable will create an array of type of characters to include
+  var possibleCharacters = [];
+  //this variable will contain an array of chosen characters
+  var confirmCharacters = [];
+  //this is a conditional logic, it puts the type of characters from prompt into an array 
+  //and then it'll push it to the array of confirm characters
+  if (options.confirmLowercaseCharacters) {
+    possibleCharacters = possibleCharacters.concat(lowercaseCharacters);
+    confirmCharacters.push(getRandomCharacters(lowercaseCharacters));
+  }
+  if (options.confirmUppercaseCharacters) {
+    possibleCharacters = possibleCharacters.concat(uppercaseCharacters);
+    confirmCharacters.push(getRandomCharacters(uppercaseCharacters));
+  }
+  if (options.confirmNumericCharacters) {
+    possibleCharacters = possibleCharacters.concat(numericCharacters);
+    confirmCharacters.push(getRandomCharacters(numericCharacters));
+  }
+  if (options.confirmSpecialCharacters) {
+    possibleCharacters = possibleCharacters.concat(specialCharacters);
+    confirmCharacters.push(getRandomCharacters(specialCharacters));
+  }
+
+  //for loop 
 }
 
 
