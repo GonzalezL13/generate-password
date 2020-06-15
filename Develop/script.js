@@ -98,10 +98,17 @@ var generatePassword = function() {
     confirmCharacters.push(getRandomCharacters(specialCharacters));
   }
 
-  //for loop 
+  //for loop will select random character from the possibleCharacter and put them in the length user wanted
+  for (var i = 0; i < options.length; i++) {
+    var possibleCharacters = getRandomCharacters(possibleCharacters);
+    newPassword.push(possibleCharacters);
+  }
+  //for loop will add one of each type of character in the newPassword
+  for (var i = 0; i < confirmCharacters.length; i++) {
+    newPassword[i] = confirmCharacters[i];
+  }
+  return newPassword.join("");
 }
-
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
